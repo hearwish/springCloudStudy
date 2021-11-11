@@ -1,0 +1,30 @@
+###consul服务端口号
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-order-service
+eureka:
+  client:
+    # 表示是否将自己注册进eurekaServer默认为true
+    register-with-eureka: true
+    # 是否从EurekaServer抓取已有的注册信息，默认为true,单节无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  # 配置微服务实例名称id显示在eureka
+  instance:
+    instance-id: EurekaOrder80
+    # 访问路径显示ip地址
+    prefer-ip-address: true
+#####consul注册中心地址
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        #hostname: 127.0.0.1
+#        service-name: ${spring.application.name}
+
