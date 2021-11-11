@@ -33,13 +33,13 @@ public class PaymentService {
     //服务降级fallback
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler",commandProperties = {
             //规定3秒内走正常业务逻辑
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")
     })
     public String paymentInfo_TimeOut(Integer id){
         int a = 10/0;
         //出数学异常后不再走下面代码
         try{
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
