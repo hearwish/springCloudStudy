@@ -36,10 +36,10 @@ public class PaymentService {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")
     })
     public String paymentInfo_TimeOut(Integer id){
-        int a = 10/0;
+        //int a = 10/0;
         //出数学异常后不再走下面代码
         try{
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(6);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
